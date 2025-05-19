@@ -157,19 +157,25 @@ themeButton.addEventListener('click', () => {
 })
 
 
-// 查找类似这样的代码，它可能在页面加载时自动设置了英文
-// 例如：
-// document.addEventListener('DOMContentLoaded', function() {
-//     changeLanguage('en');  // 这里强制设置了英文
-// });
-
-// 修改为根据HTML的lang属性或用户偏好设置语言
+// 修改为根据用户偏好或HTML的lang属性设置语言
 document.addEventListener('DOMContentLoaded', function() {
-    // 获取HTML的lang属性
-    const htmlLang = document.documentElement.lang;
-    // 如果是中文，则使用中文；否则使用英文
-    const lang = (htmlLang === 'cn') ? 'cn' : 'en';
-    changeLanguage(lang);
+    // 首先检查localStorage中是否有保存的语言设置
+    const savedLanguage = localStorage.getItem('language');
+    
+    if (savedLanguage) {
+        // 如果有保存的语言设置，使用它
+        changeLanguage(savedLanguage);
+        // 同时更新翻译按钮的value属性
+        document.getElementById('translate').setAttribute('value', savedLanguage);
+    } else {
+        // 如果没有保存的语言设置，检查HTML的lang属性
+        const htmlLang = document.documentElement.lang;
+        // 如果是中文，则使用中文；否则使用英文
+        const lang = (htmlLang === 'cn') ? 'cn' : 'en';
+        changeLanguage(lang);
+        // 更新翻译按钮的value属性
+        document.getElementById('translate').setAttribute('value', lang);
+    }
 });
 
 // 翻译按钮的事件处理
