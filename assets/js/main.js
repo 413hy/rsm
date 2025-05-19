@@ -155,3 +155,33 @@ themeButton.addEventListener('click', () => {
     localStorage.setItem('selected-theme', getCurrentTheme())
     localStorage.setItem('selected-icon', getCurrentIcon())
 })
+
+
+// 查找类似这样的代码，它可能在页面加载时自动设置了英文
+// 例如：
+// document.addEventListener('DOMContentLoaded', function() {
+//     changeLanguage('en');  // 这里强制设置了英文
+// });
+
+// 修改为根据HTML的lang属性或用户偏好设置语言
+document.addEventListener('DOMContentLoaded', function() {
+    // 获取HTML的lang属性
+    const htmlLang = document.documentElement.lang;
+    // 如果是中文，则使用中文；否则使用英文
+    const lang = (htmlLang === 'cn') ? 'cn' : 'en';
+    changeLanguage(lang);
+});
+
+// 翻译按钮的事件处理
+document.getElementById('translate').addEventListener('click', function() {
+    // 获取当前语言
+    const currentLang = this.getAttribute('value');
+    // 切换语言
+    const newLang = currentLang === 'en' ? 'cn' : 'en';
+    // 更新按钮的value属性
+    this.setAttribute('value', newLang);
+    // 切换语言
+    changeLanguage(newLang);
+    // 保存语言设置
+    localStorage.setItem('language', newLang);
+});
