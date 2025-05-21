@@ -170,7 +170,7 @@ img {
 
 /*==================== LAYOUT ====================*/
 .container {
-  max-width: 768px;
+  max-width: 100%;  /* 修改为100%以占满屏幕 */
   margin-left: var(--mb-1-5);
   margin-right: var(--mb-1-5);
 }
@@ -1215,7 +1215,11 @@ img {
   .header,
   .main,
   .footer__container {
-      padding: 0;
+      padding: 0 2rem;  /* 增加内边距 */
+  }
+  .container {
+      max-width: 1200px;  /* 为大屏幕设置更大的最大宽度 */
+      margin: 0 auto;  /* 居中显示 */
   }
   .home__blob {
       width: 320px;
