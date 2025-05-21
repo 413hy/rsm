@@ -570,6 +570,43 @@ img {
   width: 80%;
 }
 
+/* 添加缺失的技能百分比 */
+.skills__windows {
+  width: 90%;
+}
+
+.skills__linux {
+  width: 70%;
+}
+
+.skills__hardware {
+  width: 80%;
+}
+
+.skills__tcpip {
+  width: 85%;
+}
+
+.skills__routing {
+  width: 75%;
+}
+
+.skills__security {
+  width: 65%;
+}
+
+.skills__office {
+  width: 95%;
+}
+
+.skills__remote {
+  width: 90%;
+}
+
+.skills__troubleshoot {
+  width: 85%;
+}
+
 .skills__close .skills__list {
   
   height: 0;
