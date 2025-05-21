@@ -136,6 +136,15 @@ a {
 img {
   max-width: 100%;
   height: auto;
+  display: block;
+}
+
+.about__img,
+.home__blob,
+.portfolio__img {
+  width: 100%;
+  max-width: 350px;
+  margin: 0 auto;
 }
 
 /*==================== REUSABLE CSS CLASSES ====================*/
@@ -219,6 +228,15 @@ img {
     box-shadow: 0 -1px 4px rgba(0,0,0,.15);
     border-radius: 1.5rem 1.5rem 0 0;
     transition: .3s;
+  }
+  
+  /* 添加以下代码以改善移动端菜单的可点击区域 */
+  .nav__item {
+    margin-bottom: 1rem;
+  }
+  
+  .nav__link {
+    padding: 0.5rem 0;
   }
 }
 
@@ -890,6 +908,14 @@ img {
   .home__blob {
       width: 180px;
   }
+  
+  .home__title {
+      font-size: 1.75rem;
+  }
+  
+  .home__subtitle {
+      font-size: 1rem;
+  }
 
   .skills__title {
       font-size: var(--normal-font-size);
@@ -933,6 +959,36 @@ img {
 
 /* For medium devices */
 @media screen and (min-width: 568px) {
+  /* 优化平板设备上的项目展示 */
+  .portfolio__img {
+    width: 220px;
+  }
+  
+  .portfolio__content {
+    align-items: center;
+  }
+  /* 为中等屏幕设备添加更精细的断点 */
+  .home__content {
+    grid-template-columns: max-content 1fr 1fr;
+  }
+  
+  .home__data {
+    grid-column: initial;
+  }
+  
+  .home__img {
+    order: 1;
+    justify-self: center;
+  }
+  
+  .about__container,
+  .skills__container,
+  .portfolio__content,
+  .contact__container,
+  .footer__container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .home__content {
       grid-template-columns: max-content 1fr 1fr;
   }
